@@ -1,0 +1,12 @@
+#!/bin/bash -x
+
+DOT=$HOME/.dotfiles
+
+ln -s $DOT/.tmux.conf .tmux.conf
+ln -s $DOT/.tmuxinator .tmuxinator
+ln -s $DOT/.xmonad .xmonad
+
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
