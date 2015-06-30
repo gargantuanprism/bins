@@ -8,7 +8,6 @@ ln -s $DOT/.xmonad $HOME/.xmonad
 ln -s $DOT/.emacs.d $HOME/.emacs.d
 ln -s $DOT/.emacs $HOME/.emacs
 ln -s $DOT/.fluxbox $HOME/.fluxbox
-ln -s $DOT/mc $HOME/.config/mc
 ln -s $DOT/.Xdefaults $HOME/.Xdefaults
 
 setopt EXTENDED_GLOB
