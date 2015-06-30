@@ -28,7 +28,8 @@ pacman -Sy --noconfirm \
        deluge \
        python2 \
        python \
-       gnucash
+       gnucash \
+       feh
        
 # yaourt
 cd /tmp
@@ -56,3 +57,8 @@ yaourt -S --noconfirm \
 # services
 systemctl enable NetworkManager
 systemctl start NetworkManager
+
+# etc
+cd /etc/fonts/conf.d
+ln -s ../conf.avail/70-yes-bitmaps.conf
+cd -
