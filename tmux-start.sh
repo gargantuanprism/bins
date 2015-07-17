@@ -3,4 +3,4 @@
 # why does .zshrc need to be sourced?
 source ~/.zshrc
 
-urxvt-lock -e tmuxinator start def
+urxvt -e tmuxinator start def
