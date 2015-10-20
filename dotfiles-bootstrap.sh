@@ -9,6 +9,7 @@ ln -s $DOT/.emacs.d $HOME/.emacs.d
 ln -s $DOT/.emacs $HOME/.emacs
 ln -s $DOT/.fluxbox $HOME/.fluxbox
 ln -s $DOT/.Xdefaults $HOME/.Xdefaults
+ln -s $DOT/.vimrc $HOME/.vimrc
 
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
