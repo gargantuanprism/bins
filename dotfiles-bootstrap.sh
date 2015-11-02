@@ -1,17 +1,15 @@
 #!/bin/zsh -x
 
-DOT=$HOME/.dotfiles
+SRCS=(.tmux.conf .tmuxinator .xmonad .emacs.d .emacs .fluxbox .Xdefaults \
+  .vimrc)
 
-ln -s $DOT/.tmux.conf $HOME/.tmux.conf
-ln -s $DOT/.tmuxinator $HOME/.tmuxinator
-ln -s $DOT/.xmonad $HOME/.xmonad
-ln -s $DOT/.emacs.d $HOME/.emacs.d
-ln -s $DOT/.emacs $HOME/.emacs
-ln -s $DOT/.fluxbox $HOME/.fluxbox
-ln -s $DOT/.Xdefaults $HOME/.Xdefaults
-ln -s $DOT/.vimrc $HOME/.vimrc
+cd $HOME
+
+for src in $SRCS; do
+  ln -s $src &> /dev/null
+done
 
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" &> /dev/null
 done
