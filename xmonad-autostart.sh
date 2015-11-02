@@ -21,5 +21,5 @@ xprop -remove _NET_WORKAREA -root
 xsetroot -cursor_name left_ptr
 
 # windows
-tmux-start &
-emacs &
+urxvt -e "tmuxinator start vim"
+
