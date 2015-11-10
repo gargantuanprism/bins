@@ -1,3 +1,5 @@
 mount-iso
 reaper
 rsync-*
+*.swp
+
