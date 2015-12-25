@@ -1,54 +1,13 @@
-#!/bin/bash
+#!/bin/bash -x
 
-# base
-sudo pacman -Sy --noconfirm \
-       zsh \
-       git \
-       emacs \
-       gnome-keyring \
-       networkmanager \
-       network-manager-applet \
-       parcellite \
-       binutils \
-       make \
-       patch \
-       fakeroot \
-       chromium \
-       rxvt-unicode \
-       dmenu \
-       fluxbox \
-       xterm \
-       yajl \
-       wget \
-       firefox \
-       vim \
-       lxdm \
-       clementine \
-       gcc \
-       deluge \
-       python2 \
-       python \
-       gnucash \
-       feh \
-       vim \
-       wpa_supplicant \
-       dialog \
-       gnome-themes-standard \
-       gnome-themes-extra \
-       lxappearance \
-       dmenu \
-       base-devel \
-       i3-wm \
-       i3status \
-       openssh \
-       tk \
-       python2 \
-       python2-pip \
-       tmux \
-       xdotool \
-       xorg-xkill \
-       xorg-xrandr
-       
+PACMAN="sudo pacman -Sy --noconfirm"
+YAOURT="yaourt -Sy --noconfirm"
+MAKEPKG="makepkg -i --noconfirm"
+
+sudo pacman -Syu
+
+cat $HOME/bin/base-pkgs.txt | xargs $PACMAN
+
 # yaourt
 cd /tmp
 
@@ -59,21 +18,14 @@ tar xzf package-query.tar.gz
 tar xzf yaourt.tar.gz
 
 cd package-query
-makepkg -i
+$MAKEPKG
 
 cd ../yaourt
-makepkg -i
+$MAKEPKG
 
-# aur
-yaourt -S --noconfirm \
-       kupfer \
-       spotify \
-       google-chrome \
-       dropbox \
-       btsync
+cat $HOME/bin/aur-pkgs.txt | xargs $YAOURT
 
 # etc
 cd /etc/fonts/conf.d
 ln -s ../conf.avail/70-yes-bitmaps.conf
-cd -
 
