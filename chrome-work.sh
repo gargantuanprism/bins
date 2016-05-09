@@ -1,4 +1,4 @@
 #!/bin/bash
 
-google-chrome-stable --user-data-dir=~/.config/chrome-work
+google-chrome-stable --user-data-dir=$HOME/.config/chrome-work
 
