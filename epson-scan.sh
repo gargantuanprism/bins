@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Probably system-dependent
-DEVICE="plustek:libusb:005:004"
+DEVICE=`scanimage -L | egrep -o '(plustek:libusb:[[:digit:]]+:[[:digit:]]+)'`
 DEPTH=14
 MODE=Color
 RES=100
