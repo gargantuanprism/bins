@@ -1,24 +1,35 @@
 #!/usr/bin/env python2
 
+import os
+
 import requests
 
-YQL = 'select item.condition from weather.forecast where woeid = %s and u = "c"'
-
-BASE = 'https://query.yahooapis.com/v1/public/yql?q={0}&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys'
+BASE = ('http://api.openweathermap.org/data/2.5/weather?zip={zip_code},us'
+        '&appid={api_key}')
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
     from pprint import pprint
 
     parser = ArgumentParser()
-    parser.add_argument('woeid')
+    parser.add_argument('--api-key')
+    parser.add_argument('--zip-code')
     args = parser.parse_args()
 
-    url = BASE.format(YQL % args.woeid)
+    zip_code = args.zip_code or os.getenv('ZIP_CODE')
+    api_key = args.api_key or os.getenv('OPENWEATHERMAP_API_KEY')
+
+    url = BASE.format(api_key=api_key, zip_code=zip_code)
 
     resp = requests.get(url)
     data = resp.json()
 
-    current = data['query']['results']['channel']['item']['condition']
-    print '%sC/%s' % (current['temp'], current['text'])
+    if data['cod'] != 200:
+        print 'error (%d)' % data['cod']
+        exit()
+
+    desc = data['weather'][0]['main']
+    temp = data['main']['temp'] - 273
+
+    print '%.02fC/%s' % (temp, desc)
 
