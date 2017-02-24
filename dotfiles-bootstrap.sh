@@ -21,6 +21,9 @@ ln -sf $DOT/tmux.conf .tmux.conf
 ln -sf $DOT/vimrc .vimrc
 ln -sf $DOT/Xresources .Xresources
 
+# Need this for Arch?!
+ln -sf $DOT/Xresources .Xdefaults
+
 # Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
