@@ -1,6 +1,0 @@
-kupfer
-spotify
-google-chrome
-dropbox
-i3blocks
-
