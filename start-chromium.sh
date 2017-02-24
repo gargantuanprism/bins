@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/bin/bash -x
 
-`which chromium`
+which chromium
+
 if [ $? == 0 ]; then
   CMD=chromium
 else
   CMD=chromium-browser
-end
+fi
 
 if [ -z "$1" ]; then
   $CMD
