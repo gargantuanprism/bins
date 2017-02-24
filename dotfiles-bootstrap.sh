@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 cd $HOME
 
 # Dotfiles

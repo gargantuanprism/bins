@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ -z "$1" ]; then
-  chromium
-else
-  chromium --user-data-dir=$HOME/.config/chromium-$1
-fi
-
