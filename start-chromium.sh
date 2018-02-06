@@ -1,16 +1,24 @@
-#!/bin/bash -x
+#!/bin/bash
 
-which chromium
+CMD=`which chromium`
+PROFILE_BASE=$HOME/.config/chromium
+profile=
 
-if [ $? == 0 ]; then
-  CMD=chromium
-else
-  CMD=chromium-browser
-fi
+while getopts ":p:" opt; do
+  case $opt in
+    p)
+      profile=$OPTARG
+      ;;
+  esac
+done
 
-if [ -z "$1" ]; then
+echo $CMD
+echo $profile
+echo $PROFILE_BASE.$profile
+
+if [ -z "$profile" ]; then
   $CMD
 else
-  $CMD --user-data-dir=$HOME/.config/chromium-$1
+  $CMD --user-data-dir=$PROFILE_BASE.$profile
 fi
 
