@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CMD=`which chromium || echo chromium-browser`
+CMD=chromium-browser
 PROFILE_BASE=$HOME/.config/chromium
 profile=
 
