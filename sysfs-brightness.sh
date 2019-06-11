@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 BASE=/sys/class/backlight/intel_backlight
 MAX=`cat $BASE/max_brightness`
@@ -18,6 +18,11 @@ elif [ "$1" == "dec" ]; then
   if [ "$NEW_VAL" -lt 0 ]; then
     NEW_VAL=0
   fi
+
+elif [ "$1" == "get" ]; then
+  pct=`echo "$CUR / $MAX * 100" | bc -l`
+  printf "%.0f" "$pct"
+  exit
 fi
 
 echo $NEW_VAL > $BASE/brightness
