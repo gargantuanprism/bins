@@ -5,4 +5,9 @@ rsync-*
 crashplan
 CrashPlanDesktop
 ngrok
+.waf*
+avidemux*
+no-commit-secrets.sh
+studio.sh
+pia-client
 
